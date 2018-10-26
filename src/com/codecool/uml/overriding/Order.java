@@ -2,8 +2,14 @@ package com.codecool.uml.overriding;
 
 public class Order implements Orderable {
 
-    private int id;
+    private int id = 1;
     private String status;
+
+
+    Order(){
+        id++;
+        status = "New";
+    }
 
     public String getStatus() {
         return status;
@@ -11,11 +17,21 @@ public class Order implements Orderable {
 
     @Override
     public boolean checkout() {
-        return false;
+        if(getStatus().equals("New")) {
+            status = "Checked";
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean pay() {
-        return false;
+        if(getStatus().equals("Checked")){
+            status = "Payed";
+            return true;
+        }else{
+            return false;
+        }
     }
 }

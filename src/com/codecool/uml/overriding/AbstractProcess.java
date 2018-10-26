@@ -10,6 +10,7 @@ public abstract class AbstractProcess {
 
     public void stepBefore() {
         //implementation directly in abstract superclass
+        System.out.println("Loading...");
     }
 
     protected abstract void action(Orderable item); // implemented by subclasses
@@ -17,5 +18,6 @@ public abstract class AbstractProcess {
 
     public void stepAfter() {
         //implementation directly in abstract superclass
+        System.out.println("Done");
     }
 }
